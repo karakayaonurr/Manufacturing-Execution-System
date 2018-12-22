@@ -1,0 +1,85 @@
+<html>
+    
+    <head>
+        <title>Manufacturing Execution System</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/public/css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<link rel="icon" href="" type="image/png">
+		
+		<script>
+			document.addEventListener('DOMContentLoaded', start, false);
+			function start(){
+				document.getElementById("button0").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button1").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button2").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button3").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button4").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button5").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button6").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button7").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button8").addEventListener("click", function(){addText(this);} );
+				document.getElementById("button9").addEventListener("click", function(){addText(this);} );
+				document.getElementById("buttonBackspace").addEventListener("click", function(){clearText(this);} );
+				function addText(elem) {
+					if(document.getElementById("password").value.length <4){
+						document.getElementById("password").value += elem.value;
+					}
+				}
+				function clearText(elem) {
+				document.getElementById("password").value = "";
+				}
+			};
+		</script>
+		<script>  
+			var socket = io.connect('http://localhost:8080');
+			socket.on('connect', function(data) {
+				socket.emit('join', 'Login.ejs geri bildirim');
+			});
+		</script>
+    </head>
+
+    <body style="margin:0;padding:0">			
+		<div class= "container">
+			<div class= "row">
+				<div class= "loginPanel">
+					<div class= "panel-body center">
+						<form action= "/" method= "POST">
+							<div class= "buttons1">
+								<select class= "stationPanel1" name="station">
+									<option value="wrong" disabled selected>İstasyon Seçiniz...</option>
+									<option value="Tel Kesme">Tel Kesme İstasyonu</option>
+									<option value="Punta">Punta İstasyonu</option>
+									<option value="Pres">Pres İstasyonu</option>
+									<option value="Kaplama">Kaplama İstasyonu</option>
+									<option value="Boyama">Boyama İstasyonu</option>
+								</select>
+								<input class= "passwordPanel1" type= "password" id = "password" name="password" maxlength="4" placeholder= "Şifre Giriniz" >
+								<input class="button1" type="button" id="button7" value="7">
+								<input class="button1" type="button" id="button8" value="8">
+								<input class="button1" type="button" id="button9" value="9">
+								<input class="button1" type="button" id="button4" value="4">
+								<input class="button1" type="button" id="button5" value="5">
+								<input class="button1" type="button" id="button6" value="6">
+								<input class="button1" type="button" id="button1" value="1">
+								<input class="button1" type="button" id="button2" value="2">
+								<input class="button1" type="button" id="button3" value="3">
+								<input class="button2" type="button" id="buttonBackspace" value="Sil">
+								<input class="button1" type="button" id="button0" value="0">
+								<div><input type= "submit" class= "button2" value= "Giriş"></div>
+							</div>	
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <script type="text/javascript" src="/public/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+	</body>
+	
+</html>

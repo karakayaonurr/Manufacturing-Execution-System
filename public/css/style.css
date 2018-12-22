@@ -1,0 +1,141 @@
+.buttons1 {
+    display: flex;
+    font-family: Helvetica;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin:0 auto;
+    margin-top: 4%;
+    width: 475px;
+  }
+  
+  .button1 {
+    border: 1px solid #E7E7E7;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: #757575;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 110px;
+    font-weight: bold;
+    height: 110px;
+    line-height: 110px;
+    margin: 5px;
+    text-align: center;
+    width: 110px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .button2 {
+    border: 1px solid #E7E7E7;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: #757575;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    height: 110px;
+    line-height: 110px;
+    margin: 5px;
+    text-align: center;
+    width: 110px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .button1:hover {
+    background-color: #E7E7E7;
+    color: #FFF;
+  }
+
+  .button2:hover {
+    background-color: #E7E7E7;
+    color: #FFF;
+  }
+
+  .passwordPanel1 {
+    height: 90px;
+    width: 360px;
+    font-size: 55px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  .stationPanel1 {
+    height: 90px;
+    width: 360px;
+    font-size: 35px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  ::placeholder { 
+    color: #9A9A9A;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.show-grid [class^=col-] {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+.navbar{
+  width: 100%;
+  height: 100px;
+  background-color: #232A34 !important;
+}
+
+.navbar-brand{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 34px !important;
+}
+
+.navbar-toggle {
+    z-index:3;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.white1{
+  color: #FFF !important;
+  font-weight: bold !important;
+  cursor: pointer !important; 
+}
+
+.size1{
+  font-size: 20px;
+}
+
+.space1{
+  margin-top: 5px;  
+}
+
+.white2{
+  color: #FFF !important;
+  cursor: pointer !important; 
+}
+
+.details1{
+  font-size: 30px;
+  margin-top: 65px;
+}

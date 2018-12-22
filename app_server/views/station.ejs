@@ -1,0 +1,78 @@
+<html>
+    
+    <head>
+        <title>Manufacturing Execution System</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./public/css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="icon" href="" type="image/png">
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script>  
+            var socket = io.connect('http://localhost:8080/');
+            socket.on('connect', function(data) {
+                socket.emit('join', 'Station.ejs geri bildirim');
+            });
+         </script>
+    </head>
+
+    <body style="margin-top:80">>		
+        <div class="container-fluid">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">   
+                    <a class="navbar-brand white1" style="margin-top: 21"><%=station%> İstasyonu</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="white1 size1 text-right" style="margin-top: 20" href="/"><%=UserName%><br><span class="glyphicon glyphicon-log-out"></span></a></li>
+                        <li><a><img src="<%=UserPhoto%>"alt="<%=UserName%>" height="75" width="75"></a></li>
+                        <li><a></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <%for(i=0; i<length; i++){%>
+                <%if(OrderStatus[i]==0){
+                    panelColor = "#55DAE1"
+                    OrderStatus[i] = "Başlamadı"
+                    style1 = "glyphicon glyphicon-eject"
+                }else if(OrderStatus[i]==1){
+                    panelColor = "#04C199"
+                    OrderStatus[i] = "Devam Ediyor"
+                    style1 = "glyphicon glyphicon-play"
+                }else if(OrderStatus[i]==2){
+                    panelColor = "#FEAE1B"
+                    OrderStatus[i] = "Bekliyor"
+                    style1 = "glyphicon glyphicon-play"
+                }else if(OrderStatus[i]==3){
+                    panelColor = "#EF4663"
+                    OrderStatus[i] = "Durduruldu"
+                    style1 = "glyphicon glyphicon-stop"
+                }%>
+                <div class="row space1 white2" style="background: <%=panelColor%>">
+                    <div class="col-sm-5">
+                        <p style="font-size: 27px" align="left"><span style="margin-left: 32%"><%=ItemName[i]%></span></p>
+                        <p style="font-size: 27px" align="left"><span style="margin-left: 32%"><%=ItemCode[i]%></span></p>
+                        <p style="font-size: 16px" align="left"><span style="margin-left: 32%"><span class="<%=style1%>" style="font-size: 20px"></span>&emsp;<%=OrderStatus[i]%></span></p>
+                        <p style="font-size: 16px" align="left"><span style="margin-left: 32%"><%=Reason[i]%></span></p>
+                    </div>
+                    <div class="col-sm-5">
+                        <p style="font-size: 36px" align="right"><span style="margin-right: 20%;"><%=OrderTarget[i]%> Adet</span></p>
+                        <p style="font-size: 28px" align="right"><span style="margin-left: 32%; float:left">Üretilen:</span><span style="margin-right: 20%;"><%=OrderProduced[i]%></span></p>
+                        <p style="font-size: 28px" align="right"><span style="margin-left: 32%; float:left">Kalan:</span><span style="margin-right: 20%;"><%=OrderRemaining[i]%></span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="details1" align="center"><span class="glyphicon glyphicon-menu-right" style="font-size: 40px"></span></p>
+                    </div>
+                </div>       
+            <%}%>
+
+        </div>
+
+        <script type="text/javascript" src="/public/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+	</body>
+	
+</html>

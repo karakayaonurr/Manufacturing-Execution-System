@@ -1,0 +1,20 @@
+{
+    "name": "mess",
+    "description": "Manufacturing Execution System",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-ejs-layouts": "^2.5.0",
+        "mssql": "^4.2.3",
+        "socket.io": "^2.1.1"
+    },
+    "author": {
+        "name": "Onur Karakaya",
+        "email": "onkarakaya@gmail.com"
+    }
+}
